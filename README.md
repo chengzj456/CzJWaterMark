@@ -11,7 +11,7 @@
 ```object-c
 AddWaterMark *mark = [[AddWaterMark alloc] init];
 UIImage *logo = [mark addWaterMark:bgImg watemarkText:@"exe-3035"];
- UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, logo.size.width, logo.size.height)];
+UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, logo.size.width, logo.size.height)];
 imageview.image = logo;
 [self.view addSubview:imageview];
 ```
