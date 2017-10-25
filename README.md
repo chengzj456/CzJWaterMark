@@ -18,7 +18,6 @@ AddWaterMark *makr = [[AddWaterMark alloc] init];
 makr.textFont = [UIFont systemFontOfSize:14];
 makr.textColor = [UIColor redColor];
 UIImage *logo = [mark addWaterMark:bgImg watemarkText:@"exe-3035"];
-=======
 AddWaterMark *mark = [[AddWaterMark alloc] init];
 UIImage *logo = [mark addWaterMark:bgImg watemarkText:@"WaterMark-我是水印"];
 UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, logo.size.width, logo.size.height)];
@@ -33,7 +32,6 @@ AddWaterMark *mark = [[AddWaterMark alloc] init];
 makr.textFont = [UIFont systemFontOfSize:14];
 makr.textColor = [UIColor redColor];
 UIImage *logo = [mark watemarkText:@"exe-3035"];
-=======
 UIImage *logo = [mark watemarkText:@"WaterMark-我是水印"];
 self.view.layer.contents = (__bridge id _Nullable)(logo.CGImage);
 ```
