@@ -3,7 +3,6 @@
 新增：
 
      textFont 水印字体大小
-    
      textColor 水印颜色
 
 使用说明
