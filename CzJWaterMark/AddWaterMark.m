@@ -30,13 +30,12 @@
     UIGraphicsBeginImageContext(CGSizeMake(w, h));
     [[UIColor whiteColor] set];
     [logoImage drawInRect:CGRectMake(-SCREEN_WIDTH, -SCREEN_HEIGHT, w, h)];
-    UIFont * font = [UIFont systemFontOfSize:15.0];
     
     NSInteger line = SCREEN_HEIGHT*3/ 80; //多少行
     NSInteger row = 20;
     for (int i = 0; i < line; i ++) {
         for (int j = 0; j < row; j ++) {
-            [watemarkText drawInRect:CGRectMake(j * (SCREEN_WIDTH/3.5), i*100, 90, 25) withAttributes:@{NSFontAttributeName:font,NSForegroundColorAttributeName:[UIColor redColor]}];
+            [watemarkText drawInRect:CGRectMake(j * (SCREEN_WIDTH/3.5), i*100, 90, 25) withAttributes:@{NSFontAttributeName:_textFont,NSForegroundColorAttributeName:_textColor}];
         }
     }
     UIImage * newImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -54,15 +53,15 @@
     float scaleY = 1.0;
     rotate = M_PI_4;
     if (backImage.size.height == 1) {
-         rect = CGRectMake(0, 0, image.size.height, image.size.width);
+         rect = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
     } else {
-        rect = CGRectMake(0, 0, backImage.size.height, backImage.size.width);
+        rect = CGRectMake(0, 0, backImage.size.width, backImage.size.height);
     }
     translateX = 0;
     translateY = -rect.size.width;
     //铺满屏幕的关键↓↓↓
-    scaleY = rect.size.width/rect.size.height *1.5;
-    scaleX = rect.size.height/rect.size.width *1.5;
+    scaleY = rect.size.width/rect.size.height *2;
+    scaleX = rect.size.height/rect.size.width *2;
     
     UIGraphicsBeginImageContext(rect.size);
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -90,7 +89,7 @@
     //以1.png的图大小为画布创建上下文
     UIGraphicsBeginImageContext(CGSizeMake(w, h));
     [backImage drawInRect:CGRectMake(0, 0, w, h)];//先把1.png 画到上下文中
-    [img drawInRect:CGRectMake(-80, 0, w, h)];//再把小图放在上下文中
+    [img drawInRect:CGRectMake(0, 0, w, h)];//再把小图放在上下文中
     UIImage *resultImg = UIGraphicsGetImageFromCurrentImageContext();//从当前上下文中获得最终图片
     UIGraphicsEndImageContext();//关闭上下文
     

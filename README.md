@@ -1,5 +1,9 @@
 # CzJWaterMark
 
+新增：
+     textFont 水印字体大小
+     textColor 水印颜色
+
 使用说明
 
 ```object-c
@@ -9,9 +13,11 @@
 
 
 ```object-c
-AddWaterMark *mark = [[AddWaterMark alloc] init];
+AddWaterMark *makr = [[AddWaterMark alloc] init];
+makr.textFont = [UIFont systemFontOfSize:14];
+makr.textColor = [UIColor redColor];
 UIImage *logo = [mark addWaterMark:bgImg watemarkText:@"exe-3035"];
- UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, logo.size.width, logo.size.height)];
+UIImageView *imageview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, logo.size.width, logo.size.height)];
 imageview.image = logo;
 [self.view addSubview:imageview];
 ```
@@ -20,7 +26,8 @@ imageview.image = logo;
 
 ```object-c
 AddWaterMark *mark = [[AddWaterMark alloc] init];
+makr.textFont = [UIFont systemFontOfSize:14];
+makr.textColor = [UIColor redColor];
 UIImage *logo = [mark watemarkText:@"exe-3035"];
-[self.view setContentMode:UIViewContentModeBottomRight];
 self.view.layer.contents = (__bridge id _Nullable)(logo.CGImage);
 ```
